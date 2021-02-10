@@ -15,6 +15,8 @@ package robotgo
 import (
 	"syscall"
 	"unsafe"
+
+	"github.com/lxn/win"
 )
 
 // FindWindow find window hwnd by name
