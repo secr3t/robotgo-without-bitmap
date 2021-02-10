@@ -18,26 +18,6 @@ import (
 	"github.com/vcaesar/tt"
 )
 
-func TestColor(t *testing.T) {
-	s := GetPixelColor(10, 10)
-	tt.IsType(t, "string", s)
-	tt.NotEmpty(t, s)
-
-	c := GetPxColor(10, 10)
-	s1 := PadHex(c)
-	tt.Equal(t, s, s1)
-}
-
-func TestSize(t *testing.T) {
-	x, y := GetScreenSize()
-	tt.NotZero(t, x)
-	tt.NotZero(t, y)
-
-	x, y = GetScaleSize()
-	tt.NotZero(t, x)
-	tt.NotZero(t, y)
-}
-
 func TestMoveMouse(t *testing.T) {
 	MoveMouse(20, 20)
 	MilliSleep(10)
@@ -136,22 +116,6 @@ func TestKeyCode(t *testing.T) {
 
 	k := Keycode["1"]
 	tt.Equal(t, 2, k)
-}
-
-func TestBitmap(t *testing.T) {
-	bit := CaptureScreen()
-	tt.NotNil(t, bit)
-	e := SaveBitmap(bit, "robot_test.png")
-	tt.Empty(t, e)
-
-	img := ToImage(bit)
-	err := SavePng(img, "robot_img.png")
-	tt.Nil(t, err)
-
-	bit1 := OpenBitmap("robot_test.png")
-	b := tt.TypeOf(bit, bit1)
-	tt.True(t, b)
-	tt.NotNil(t, bit1)
 }
 
 func TestPs(t *testing.T) {
