@@ -8,6 +8,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
+//go:build darwin || windows
 // +build darwin windows
 
 package robotgo
@@ -36,7 +37,7 @@ func internalGetTitle(pid int32, args ...int32) string {
 // ActivePID active the window by PID,
 //
 // If args[0] > 0 on the Windows platform via a window handle to active
-func ActivePID(pid int32, args ...int) error {
+func ActivePID(pid int, args ...int) error {
 	var hwnd int
 	if len(args) > 0 {
 		hwnd = args[0]

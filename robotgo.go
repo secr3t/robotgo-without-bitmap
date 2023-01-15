@@ -9,15 +9,16 @@
 // except according to those terms.
 
 /*
-
 Package robotgo Go native cross-platform system automation.
 
 Please make sure Golang, GCC is installed correctly before installing RobotGo;
 
 See Requirements:
+
 	https://github.com/go-vgo/robotgo#requirements
 
 Installation:
+
 	go get -u github.com/go-vgo/robotgo
 */
 package robotgo
@@ -348,8 +349,8 @@ func SetMouseDelay(delay int) {
 // KeyTap tap the keyboard code;
 //
 // See keys:
-//	https://github.com/go-vgo/robotgo/blob/master/docs/keys.md
 //
+//	https://github.com/go-vgo/robotgo/blob/master/docs/keys.md
 func KeyTap(tapKey string, args ...interface{}) string {
 	var (
 		akey     string
@@ -429,8 +430,8 @@ func KeyTap(tapKey string, args ...interface{}) string {
 // KeyToggle toggle the keyboard
 //
 // See keys:
-//	https://github.com/go-vgo/robotgo/blob/master/docs/keys.md
 //
+//	https://github.com/go-vgo/robotgo/blob/master/docs/keys.md
 func KeyToggle(key string, args ...string) string {
 	ckey := C.CString(key)
 	defer C.free(unsafe.Pointer(ckey))
@@ -831,7 +832,7 @@ func Is64Bit() bool {
 	return bool(b)
 }
 
-func internalActive(pid int32, hwnd int) {
+func internalActive(pid int, hwnd int) {
 	C.active_PID(C.uintptr(pid), C.uintptr(hwnd))
 }
 

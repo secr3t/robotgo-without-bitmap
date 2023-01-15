@@ -91,7 +91,7 @@ func AddEvent(key string) bool {
 
 	geve := hook.AddEvent(key)
 	// defer C.free(unsafe.Pointer(cs))
-	return geve == 0
+	return geve
 }
 
 // AddEvents add global event hook
