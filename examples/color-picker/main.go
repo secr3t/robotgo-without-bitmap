@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/go-vgo/robotgo"
+	"github.com/secr3t/robotgo-without-bitmap"
 )
 
 func colorPicker() {

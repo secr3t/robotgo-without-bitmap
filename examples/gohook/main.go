@@ -13,8 +13,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/go-vgo/robotgo"
 	hook "github.com/robotn/gohook"
+	"github.com/secr3t/robotgo-without-bitmap"
 )
 
 func addEvent() {
