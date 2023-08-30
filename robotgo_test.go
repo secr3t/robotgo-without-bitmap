@@ -8,6 +8,7 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
+//go:build darwin || windows
 // +build darwin windows
 
 package robotgo
@@ -90,21 +91,9 @@ func TestKey(t *testing.T) {
 	tt.Empty(t, e)
 }
 
-func TestClip(t *testing.T) {
-	err := WriteAll("s")
-	tt.Nil(t, err)
-
-	s, e := ReadAll()
-	tt.Equal(t, "s", s)
-	tt.Nil(t, e)
-}
-
 func TestTypeStr(t *testing.T) {
 	c := CharCodeAt("s", 0)
 	tt.Equal(t, 115, c)
-
-	e := PasteStr("s")
-	tt.Empty(t, e)
 
 	uc := toUC("s")
 	tt.Equal(t, "[s]", uc)

@@ -32,7 +32,6 @@ func typeStr() {
 	ustr := uint32(robotgo.CharCodeAt("So, hi, bye!", 0))
 	robotgo.UnicodeType(ustr)
 
-	robotgo.PasteStr("paste string")
 }
 
 func keyTap() {
@@ -85,23 +84,6 @@ func keyToggle() {
 	}
 }
 
-func cilp() {
-	// robotgo.TypeString("en")
-
-	// write string to clipboard
-	e := robotgo.WriteAll("テストする")
-	if e != nil {
-		fmt.Println("robotgo.WriteAll err is: ", e)
-	}
-
-	// read string from clipboard
-	text, err := robotgo.ReadAll()
-	if err != nil {
-		fmt.Println("robotgo.ReadAll err is: ", err)
-	}
-	fmt.Println(text)
-}
-
 func key() {
 	////////////////////////////////////////////////////////////////////////////////
 	// Control the keyboard
@@ -111,8 +93,6 @@ func key() {
 
 	keyTap()
 	keyToggle()
-
-	cilp()
 }
 
 func main() {

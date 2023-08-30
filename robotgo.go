@@ -49,7 +49,6 @@ package robotgo
 import "C"
 
 import (
-	"fmt"
 	// "os"
 	"reflect"
 	"runtime"
@@ -58,7 +57,6 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/secr3t/robotgo-without-bitmap/clipboard"
 	"github.com/vcaesar/tt"
 )
 
@@ -477,16 +475,6 @@ func KeyToggle(key string, args ...string) string {
 	return C.GoString(str)
 }
 
-// ReadAll read string from clipboard
-func ReadAll() (string, error) {
-	return clipboard.ReadAll()
-}
-
-// WriteAll write string to clipboard
-func WriteAll(text string) error {
-	return clipboard.WriteAll(text)
-}
-
 // CharCodeAt char code at utf-8
 func CharCodeAt(s string, n int) rune {
 	i := 0
@@ -566,20 +554,6 @@ func TypeStr(str string, args ...float64) {
 		MicroSleep(tm)
 		// }
 	}
-}
-
-// PasteStr paste a string, support UTF-8
-func PasteStr(str string) string {
-	err := clipboard.WriteAll(str)
-	if err != nil {
-		return fmt.Sprint(err)
-	}
-
-	if runtime.GOOS == "darwin" {
-		return KeyTap("v", "command")
-	}
-
-	return KeyTap("v", "control")
 }
 
 // TypeString send a string, support unicode
