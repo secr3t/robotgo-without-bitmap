@@ -46,6 +46,7 @@ GCC
 #### For Mac OS X:
 ```
 Xcode Command Line Tools
+brew install libpng libxcb libxkbcommon
 ```
 
 #### For Windows:
